@@ -1,0 +1,684 @@
+////////////////////////////////////////////////////////
+//                                                    //
+//            Programa Box ( Video Play )             //
+//       Sistema Gerenciador de Maquina de Musica     //
+//                                                    //
+//         Desenvolvido Por: Alcir Barros             //
+//           alcirbarros@hotmail.com.br               //
+//               (32) 9227 - 7676                     //
+//                                                    //
+////////////////////////////////////////////////////////
+
+unit FProximaLetra;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls;
+
+type
+  TABC = class(TForm)
+    LetraA: TLabel;
+    LetraB: TLabel;
+    LetraC: TLabel;
+    LetraD: TLabel;
+    LetraE: TLabel;
+    LetraF: TLabel;
+    LetraG: TLabel;
+    LetraH: TLabel;
+    LetraI: TLabel;
+    LetraJ: TLabel;
+    LetraK: TLabel;
+    LetraL: TLabel;
+    LetraM: TLabel;
+    LetraN: TLabel;
+    LetraO: TLabel;
+    LetraP: TLabel;
+    LetraQ: TLabel;
+    LetraR: TLabel;
+    LetraS: TLabel;
+    LetraT: TLabel;
+    LetraU: TLabel;
+    LetraV: TLabel;
+    LetraW: TLabel;
+    LetraY: TLabel;
+    LetraZ: TLabel;
+    LetraX: TLabel;
+    Timer1: TTimer;
+    Numero: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure Letra;
+    procedure SaltoProximaLetra;
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure FormShow(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FDireita;
+    procedure caminhodapasta;
+    procedure FormKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ABC: TABC;
+    Ftmr_ultima_digitacaoProximaLetra, Ftmr_agoraProximaLetra: TTime;
+
+implementation
+
+uses Principal, Tfuncoes, FTela, FVolume, DataModule;
+
+{$R *.dfm}
+
+
+procedure TABC.SaltoProximaLetra;
+begin
+
+    if b= 48 then
+    begin
+      Letra;
+      Numero.Color:=clRed;
+    end;
+
+    if b= 49 then
+    begin
+      Letra;
+      Numero.Color:=clRed;
+    end;
+
+    if b= 50 then
+    begin
+      Letra;
+      Numero.Color:=clRed;
+    end;
+
+    if b= 51 then
+    begin
+      Letra;
+      Numero.Color:=clRed;
+    end;
+
+    if b= 52 then
+    begin
+      Letra;
+      Numero.Color:=clRed;
+    end;
+
+    if b= 53 then
+    begin
+      Letra;
+      Numero.Color:=clRed;
+    end;
+
+    if b= 54 then
+    begin
+      Letra;
+      Numero.Color:=clRed;
+    end;
+
+    if b= 55 then
+    begin
+      Letra;
+      Numero.Color:=clRed;
+    end;
+
+    if b= 56 then
+    begin
+      Letra;
+      Numero.Color:=clRed;
+    end;
+
+    if b= 57 then
+    begin
+      Letra;
+      Numero.Color:=clRed;
+    end;
+
+    if b= 65 then
+    begin
+      Letra;
+      LetraA.Color:=clRed;
+    end;
+
+    if b= 66 then
+    begin
+      Letra;
+      LetraB.Color:=clRed;
+    end;
+
+    if b= 67 then
+    begin
+      Letra;
+      LetraC.Color:=clRed;
+    end;
+
+    if b= 68 then
+    begin
+      Letra;
+      LetraD.Color:=clRed;
+    end;
+
+    if b= 69 then
+    begin
+      Letra;
+      LetraE.Color:=clRed;
+    end;
+
+    if b= 70 then
+    begin
+      Letra;
+      LetraF.Color:=clRed;
+    end;
+
+
+    if b= 71 then
+    begin
+      Letra;
+      LetraG.Color:=clRed;
+    end;
+
+
+    if b= 72 then
+    begin
+      Letra;
+      LetraH.Color:=clRed;
+    end;
+
+
+    if b= 73 then
+    begin
+      Letra;
+      LetraI.Color:=clRed;
+    end;
+
+    if b= 74 then
+    begin
+      Letra;
+      LetraJ.Color:=clRed;
+    end;
+
+    if b= 75 then
+    begin
+      Letra;
+      LetraK.Color:=clRed;
+    end;
+
+    if b= 76 then
+    begin
+      Letra;
+      LetraL.Color:=clRed;
+    end;
+
+    if b= 77 then
+    begin
+       Letra;
+      LetraM.Color:=clRed;
+    end;
+
+    if b= 78 then
+    begin
+      Letra;
+      LetraN.Color:=clRed;
+    end;
+
+    if b= 79 then
+    begin
+       Letra;
+      LetraO.Color:=clRed;
+    end;
+
+    if b= 80 then
+    begin
+      Letra;
+      LetraP.Color:=clRed;
+    end;
+
+    if b= 81 then
+    begin
+      Letra;
+      LetraQ.Color:=clRed;
+    end;
+
+    if b= 82 then
+    begin
+      Letra;
+      LetraR.Color:=clRed;
+    end;
+
+    if b= 83 then
+    begin
+      Letra;
+      LetraS.Color:=clRed;
+    end;
+
+    if b= 84 then
+    begin
+      Letra;
+      LetraT.Color:=clRed;
+    end;
+
+    if b= 85 then
+    begin
+      Letra;
+      LetraU.Color:=clRed;
+    end;
+
+    if b= 86 then
+    begin
+      Letra;
+      LetraV.Color:=clRed;
+    end;
+
+    if b= 87 then
+    begin
+      Letra;
+      LetraW.Color:=clRed;
+    end;
+
+    if b= 88 then
+    begin
+      Letra;
+      LetraX.Color:=clRed;
+    end;
+
+    if b= 89 then
+    begin
+      Letra;
+      LetraY.Color:=clRed;
+    end;
+
+    if b= 90 then
+    begin
+      Letra;
+      LetraZ.Color:=clRed;
+    end;
+
+
+
+end;
+
+procedure TABC.FormCreate(Sender: TObject);
+begin
+  top:= 454;
+  Left:= -3;
+end;
+
+procedure TABC.Letra;
+begin
+Numero.Color:= clBlack;
+LetraA.Color:= clBlack;
+LetraB.Color:= clBlack;
+LetraC.Color:= clBlack;
+LetraD.Color:= clBlack;
+LetraE.Color:= clBlack;
+LetraF.Color:= clBlack;
+LetraG.Color:= clBlack;
+LetraH.Color:= clBlack;
+LetraI.Color:= clBlack;
+LetraJ.Color:= clBlack;
+LetraK.Color:= clBlack;
+LetraL.Color:= clBlack;
+LetraM.Color:= clBlack;
+LetraN.Color:= clBlack;
+LetraO.Color:= clBlack;
+LetraP.Color:= clBlack;
+LetraQ.Color:= clBlack;
+LetraR.Color:= clBlack;
+LetraS.Color:= clBlack;
+LetraT.Color:= clBlack;
+LetraU.Color:= clBlack;
+LetraV.Color:= clBlack;
+LetraW.Color:= clBlack;
+LetraX.Color:= clBlack;
+LetraY.Color:= clBlack;
+LetraZ.Color:= clBlack;
+end;
+
+
+
+procedure TABC.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+  if key = 27 then
+    begin
+     Application.Terminate;
+    end;
+
+end;
+
+procedure TABC.FormShow(Sender: TObject);
+begin
+  Ftmr_ultima_digitacaoProximaLetra := Time;
+  TProximaLetra:=True;
+  SaltoProximaLetra;
+  Timer1.Enabled:=True;
+end;
+
+procedure TABC.Timer1Timer(Sender: TObject);
+begin
+  Ftmr_agoraProximaLetra := time;
+  if (Ftmr_agoraProximaLetra - Ftmr_ultima_digitacaoProximaLetra) >= strtotime('00:00:05') then //A tela de login aparecerá em 03 minutos
+  begin
+  Timer1.Enabled:=False;
+  ABC.Close;
+  end;
+end;
+
+procedure TABC.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  TProximaLetra:=False;
+
+  if Pricipal.ListView1.Items.Count >0 then
+           begin
+            try
+
+
+              if TelaVerificaVideo = False then
+                begin
+                  Pricipal.ListView1.SetFocus;
+                  Pricipal.ListView1.Items.Item[0].Selected := true;
+                  Pricipal.ListView1.Items.Item[0].Focused := true;
+                end
+              else
+                begin
+                 Tela.ListView1.SetFocus;
+                 Tela.ListView1.Items.Item[0].Selected := true;
+                 Tela.ListView1.Items.Item[0].Focused := true;
+              end;
+           except
+           end;
+         end;
+
+end;
+
+   procedure TABC.FDireita;
+  var
+  Saltos :Integer; // Somente pra controle do DBPASTA com o For que mudandao de pagina
+  begin
+ i := i + 1;
+ DMG.TBPASTAS.Next;
+  if i < totGru then
+ begin
+ end
+   else
+  begin
+  // ShowMessage('Próximo bloco de '+IntToStr(totGru));
+        totGru := totGru + 8;
+        im1 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im2 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im3 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im4 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im5 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im6 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im7 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im8 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+
+        for Saltos := 1 to 8 do
+         begin
+          DMG.TBPASTAS.Prior;
+         end;
+
+
+
+      if Cont - i = 1 then
+        begin
+         for Saltos := 1 to 8 do
+         begin
+         DMG.TBPASTAS.Next;
+         end;
+          Pricipal.ima2.Visible := false;
+          Pricipal.ima3.Visible := false;
+          Pricipal.ima4.Visible := false;
+          Pricipal.ima5.Visible := false;
+          Pricipal.ima6.Visible := false;
+          Pricipal.ima7.Visible := false;
+          Pricipal.ima8.Visible := false;
+        end;
+
+        if Cont - i = 2 then
+        begin
+
+         for Saltos := 1 to 7 do
+          begin
+          DMG.TBPASTAS.Next;
+          end;
+          Pricipal.ima3.Visible := false;
+          Pricipal.ima4.Visible := false;
+          Pricipal.ima5.Visible := false;
+          Pricipal.ima6.Visible := false;
+          Pricipal.ima7.Visible := false;
+          Pricipal.ima8.Visible := false;
+        end;
+
+        if Cont - i = 3 then
+        begin
+         for Saltos := 1 to 7 do
+          begin
+          DMG.TBPASTAS.Next;
+          end;
+          Pricipal.ima4.Visible := false;
+          Pricipal.ima5.Visible := false;
+          Pricipal.ima6.Visible := false;
+          Pricipal.ima7.Visible := false;
+          Pricipal.ima8.Visible := false;
+        end;
+
+        if Cont - i = 4 then
+        begin
+          DMG.TBPASTAS.Next;
+          DMG.TBPASTAS.Next;
+          DMG.TBPASTAS.Next;
+          DMG.TBPASTAS.Next;
+          DMG.TBPASTAS.Next;
+          Pricipal.ima5.Visible := false;
+          Pricipal.ima6.Visible := false;
+          Pricipal.ima7.Visible := false;
+          Pricipal.ima8.Visible := false;
+        end;
+
+        if Cont - i = 5 then
+        begin
+          DMG.TBPASTAS.Next;
+          DMG.TBPASTAS.Next;
+          DMG.TBPASTAS.Next;
+          DMG.TBPASTAS.Next;
+          Pricipal.ima6.Visible := false;
+          Pricipal.ima7.Visible := false;
+          Pricipal.ima8.Visible := false;
+        end;
+
+
+        if Cont - i = 6 then
+        begin
+          DMG.TBPASTAS.Next;
+          DMG.TBPASTAS.Next;
+          DMG.TBPASTAS.Next;
+          Pricipal.ima7.Visible := false;
+          Pricipal.ima8.Visible := false;
+        end;
+
+        if Cont - i = 7 then
+        begin
+          DMG.TBPASTAS.Next;
+          DMG.TBPASTAS.Next;
+          Pricipal.ima8.Visible := false;
+        end;
+
+    if Cont - i = 8 then
+        begin
+          DMG.TBPASTAS.Next;
+        end;
+       conta:= 0 ;
+end;
+
+
+ if i = Cont then
+      begin
+ //  volte para o começo
+
+        Pricipal.ima1.Visible := True;
+        Pricipal.ima2.Visible := True;
+        Pricipal.ima3.Visible := True;
+        Pricipal.ima4.Visible := True;
+        Pricipal.ima5.Visible := True;
+        Pricipal.ima6.Visible := True;
+        Pricipal.ima7.Visible := True;
+        Pricipal.ima8.Visible := True;
+        Pricipal.Bord1.Visible := False;
+        Pricipal.Bord2.Visible := False;
+        Pricipal.Bord3.Visible := False;
+        Pricipal.Bord4.Visible := False;
+        Pricipal.Bord5.Visible := False;
+        Pricipal.Bord6.Visible := False;
+        Pricipal.Bord7.Visible := False;
+        Pricipal.Bord8.Visible := False;
+        Pricipal.Bord1.Visible := True;
+
+        DMG.TBPASTAS.First;
+        i := 0;
+        totGru := 8;
+        im1 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im2 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im3 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im4 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im5 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im6 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im7 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.Next;
+        im8 := DMG.TBPASTAS.Fields[1].AsString;
+        DMG.TBPASTAS.First;
+        conta:= 0 ;
+      end;
+    ABC.caminhodapasta;
+end;
+
+procedure TABC.caminhodapasta;
+begin
+
+    conta := conta + 1;
+
+   if conta = 8 then
+      begin
+        caminhopasta := im8;
+      end;
+
+      if conta = 7 then
+      begin
+        caminhopasta := im7;
+      end;
+
+      if conta = 6 then
+      begin
+        caminhopasta := im6;
+      end;
+
+      if conta = 5 then
+      begin
+        caminhopasta := im5;
+      end;
+
+      if conta = 4 then
+      begin
+        caminhopasta := im4;
+      end;
+
+      if conta = 3 then
+      begin
+        caminhopasta := im3;
+      end;
+
+      if conta = 2 then
+      begin
+        caminhopasta := im2;
+      end;
+
+   if conta = 1 then
+      begin
+        caminhopasta := im1;
+      end;
+
+end;
+
+
+procedure TABC.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+    if key = AdicionaCreditos then
+ begin
+  Pricipal.adicionacredito;
+  if creEspecial = 18 then
+    begin
+       credito:=credito + 1;
+       CreEspecial:=0;
+    end
+    else
+    begin
+      CreEspecial:=CreEspecial + 2;
+    end;
+
+   if TelaVerificaVideo = False then
+     begin
+        Pricipal.adicionacredito;
+       end
+       else
+       begin
+        Tela.ezibecredito;
+       end;
+     end;
+
+    if key = 65 then
+      begin
+      FRC.ProximaLetra;
+      SaltoProximaLetra;
+     end;
+
+     if key <> 65 then
+      begin
+        ABC.Close;
+          if Pricipal.ListView1.Items.Count >0 then
+           begin
+            try
+
+
+              if TelaVerificaVideo = False then
+                begin
+                  Pricipal.ListView1.SetFocus;
+                  Pricipal.ListView1.Items.Item[0].Selected := true;
+                  Pricipal.ListView1.Items.Item[0].Focused := true;
+                end
+              else
+                begin
+                 Tela.ListView1.SetFocus;
+                 Tela.ListView1.Items.Item[0].Selected := true;
+                 Tela.ListView1.Items.Item[0].Focused := true;
+              end;
+           except
+           end;
+         end;
+
+
+      end;
+end;
+
+end.

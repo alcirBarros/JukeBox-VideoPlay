@@ -1,0 +1,27 @@
+unit FTocando;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, TFlatPanelUnit, ExtCtrls;
+
+type
+  TTimerVideo = class(TForm)
+    Label1: TLabel;
+    Panel4: TPanel;
+    FlatPanel1: TFlatPanel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TimerVideo: TTimerVideo;
+
+implementation
+
+{$R *.dfm}
+
+end.

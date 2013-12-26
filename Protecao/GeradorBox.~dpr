@@ -1,0 +1,15 @@
+program GeradorBox;
+
+uses
+  Forms,
+  FProtecao in 'FProtecao.pas' {Proteger},
+  FSobre in 'FSobre.pas' {Form1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TProteger, Proteger);
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.
